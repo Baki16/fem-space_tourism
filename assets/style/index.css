@@ -7,7 +7,7 @@
   /* ---- Colors ---- */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
-  --clr-white: 0 0 100%;
+  --clr-white: 0 100% 100%;
   /* ---- Fonts-size ---- */
   --fs-900: 9.375rem;
   --fs-800: 6.25rem;
@@ -57,11 +57,11 @@ p {
 /* ---- Set up the body ---- */
 body {
   font-family: var(--ff-sans-normal);
-  font-size: var(--fs-400);
-  color: hsl(var(--clr-white));
-  background-color: hsl(var(--clr-dark));
-  line-height: 1.5;
-  min-height: 100vh;
+  color: hsl( var(--clr-white) ) ;
+    font-size: var(--fs-400);
+    background-color: hsl( var(--clr-dark) );
+    line-height: 1.5;
+    min-height: 100vh;
 }
 /* ---- Set up images ---- */
 img,
@@ -109,6 +109,10 @@ select {
   max-width: 80rem;
   padding-inline: 2em;
   margin-inline: auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 2em minmax(0, 40rem) minmax(0, 40rem) 2em;
 }
 
 .sr-only {
@@ -215,7 +219,7 @@ select {
 
 .large-button {
   position: relative;
-  display: grid;
+  display: inline-grid;
   z-index: 1;
   place-items: center;
   padding: 0 2em;
