@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script src="/assets/js/index.js" defer></script>
     <link
       rel="icon"
       type="image/png"
@@ -24,8 +25,9 @@
           class="logo"
         />
       </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
       <nav>
-        <ul class="primary-navigation underline-indicators flex">
+        <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
           <li class="active">
             <a
               class="ff-sans-cond uppercase text-white letter-spacing-2"
@@ -59,7 +61,7 @@
     </header>
 
     <div class="grid-container grid-container--home">
-      <div style="overflow: hidden;">
+      <div style="overflow: hidden">
         <h1 class="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
           So, you want to travel to
           <span class="d-block fs-900 ff-serif text-white">Space</span>
@@ -72,9 +74,7 @@
         </p>
       </div>
       <div>
-        <a
-          href="#"
-          class="large-button uppercase ff-serif text-dark bg-white"
+        <a href="#" class="large-button uppercase ff-serif text-dark bg-white"
           >Explore</a
         >
       </div>
