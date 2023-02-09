@@ -9,7 +9,7 @@
   --clr-light: 231 77% 90%;
   --clr-white: 0 100% 100%;
   /* ---- Fonts-size ---- */
-  --fs-900: 5rem;
+  --fs-900:  clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
@@ -17,7 +17,7 @@
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
-  
+
   /* ---- Font-families ---- */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
@@ -25,24 +25,23 @@
 }
 @media (min-width: 35em) {
   :root {
-      --fs-800: 5rem;
-      --fs-700: 2.5rem;
-      --fs-600: 1.5rem;
-      --fs-400: 1rem;
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
   }
 }
 
 @media (min-width: 45em) {
   :root {
-      /* font-sizes */
-      --fs-900: 9.375rem;
-      --fs-800: 6.25rem;
-      --fs-700: 3.5rem;
-      --fs-600: 2rem;
-      --fs-500: 1.75rem;
-      --fs-400: 1.125rem;
-      --fs-300: 1rem;
-      --fs-200: 0.875rem;
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
   }
 }
 
@@ -130,6 +129,9 @@ select {
   display: grid;
   gap: var(--gap, 1rem);
 }
+.d-block {
+    display: block;
+}
 
 .container {
   max-width: 80rem;
@@ -138,23 +140,35 @@ select {
 }
 
 .grid-container {
+  text-align: center;
   display: grid;
+  grid-template-columns: 100vw;
+  place-items: center;
+}
+.grid-container > *{
+  max-width: 50ch;
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 45em) {
   .grid-container {
-      column-gap: var(--container-gap, 2rem);
-      grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
   }
-  
+
   .grid-container > *:first-child {
-      grid-column: 2;
-      outline: 1px solid red;
+    grid-column: 2;
   }
 
   .grid-container > *:last-child {
-      grid-column: 3;
-      outline: 1px solid yellow;
+    grid-column: 3;
+  }
+  .grid-container--home{
+    padding-bottom: 6rem;
+    align-items: end;
   }
 }
 .sr-only {
@@ -259,6 +273,7 @@ select {
 /* ============= Compontents ============== */
 
 .large-button {
+  font-size: 2rem;
   position: relative;
   display: inline-grid;
   z-index: 1;
