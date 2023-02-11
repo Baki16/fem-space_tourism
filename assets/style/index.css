@@ -13,7 +13,7 @@
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
-  --fs-500: 1.75rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -28,6 +28,7 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
     --fs-400: 1rem;
   }
 }
@@ -140,38 +141,7 @@ select {
   margin-inline: auto;
 }
 
-.grid-container {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 100vw;
-  place-items: center;
-}
-.grid-container > * {
-  max-width: 50ch;
-}
 
-@media (min-width: 45em) {
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        2rem,
-        1fr
-      );
-  }
-
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-
-  .grid-container > *:last-child {
-    grid-column: 3;
-  }
-  .grid-container--home {
-    padding-bottom: max(6rem, 20vh);
-    align-items: end;
-  }
-}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -210,7 +180,7 @@ select {
 .text-dark {
   color: hsl(var(--clr-dark));
 }
-.text-light {
+.text-accent {
   color: hsl(var(--clr-light));
 }
 .text-white {
@@ -417,6 +387,7 @@ nav {
 }
 .underline-indicators > * {
   padding: var(--underline-gap, 1rem) 0;
+  border: none;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
 }
 
@@ -491,3 +462,36 @@ body {
     background-image: url(/assets/home/background-home-desktop.jpg);
   }
 }
+/* ========== Layout ============ */
+.grid-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 100vw;
+  place-items: center;
+}
+.grid-container > * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+} 
