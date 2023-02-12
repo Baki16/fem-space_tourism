@@ -527,6 +527,7 @@ body {
 .grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -650,8 +651,10 @@ body {
       justify-self: start;
   }
   
-  /* .grid-container--crew > Picture {
-      align-self: end;
-  } */
+  .grid-container--crew > picture {
+    grid-column: span 2;
+    align-self: end;
+    max-width: 90%;
+}
 
 }
