@@ -67,8 +67,9 @@ h3,
 h4,
 h5,
 p,
+img,
 figure,
-picture {
+picture{
   margin: 0; 
 }
 
@@ -101,7 +102,7 @@ body {
 img,
 picutre {
   max-width: 100%;
-  display: block;
+  /* display: block; */
 }
 
 /* make form elements easier to work with */
@@ -417,9 +418,36 @@ border: 0;
   cursor: pointer;
   border: 0;
   border-radius: 50%;
-  padding: .5em;
+  padding: .5rem;
   background-color: hsl( var(--clr-white) / .25);
 }
+.number-list > * {
+  cursor: pointer;
+  border: 2px;
+  width: 3rem;
+  aspect-ratio: 1;
+  border: 1px solid hsl( var(--clr-white) );
+  border-radius: 50%;
+  background: transparent;
+  color: hsl( var(--clr-white) );
+}
+
+.number-list > *:hover,
+.number-list > *:focus { 
+  color: hsl( var(--clr-dark) );
+  border: 1px solid hsl( var(--clr-white) / .5);
+  background-color: hsl( var(--clr-white) / .5);
+}
+.number-list > [aria-selected="true"] {
+  color: hsl( var(--clr-dark) );
+  background-color: hsl( var(--clr-white) / 1); 
+}
+@media (min-width: 45rem) {
+  .number-list{
+    flex-direction: column;
+  }
+} 
+
 
 .dot-indicators > *:hover,
 .dot-indicators > *:focus { 
@@ -489,6 +517,23 @@ body {
 @media (min-width: 45rem) {
   .crew {
       background-image: url(/assets/crew/background-crew-desktop.jpg);
+  }
+} 
+/* tehnology */
+.technology {
+  background-image: url(/assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+  .technology {
+      background-position: center center;
+      background-image: url(/assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .technology {
+      background-image: url(/assets/technology/background-technology-desktop.jpg);
   }
 } 
 
@@ -577,6 +622,7 @@ body {
 .crew-details h2 {
   color: hsl( var(--clr-white) / .5);
 }
+/* thenology-details */
 
 @media (min-width: 35em) {
   .numbered-title {
@@ -600,7 +646,26 @@ body {
   
   
 }
+/* tehnology layout */
 
+.grid-container--tehnology {
+  --flow-space: 2rem;
+  grid-template-areas: 
+      'title'
+      'image'
+      'tabs'
+      'content';
+}
+.grid-container--tehnology > img {
+  grid-area: image;
+}
+
+.grid-container--tehnology > .number-list {
+  grid-area: tabs;
+}
+.grid-container--tehnology > .thenology-details{
+  grid-area: content;
+}
 @media (min-width: 45em) {
   .grid-container {
       text-align: left;
@@ -656,5 +721,21 @@ body {
     align-self: end;
     max-width: 90%;
 }
+.grid-container--tehnology {
+  grid-template-areas: 
+      '. title title .'
+      'tabs content image image'
+      'tabs content image image';
+}
+.grid-container--tehnology > #launch-image{
+  content: url('/assets/technology/image-launch-vehicle-portrait.jpg');
+}
+.grid-container--tehnology> #spaceport-image{
+  content: url('/assets/technology/image-spaceport-portrait.jpg');
+}
+.grid-container--tehnology> #capsule-image{
+  content: url('/assets/technology/image-space-capsule-portrait.jpg');
+}
 
 }
+
